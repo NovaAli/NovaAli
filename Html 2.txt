@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Maker for JEE/NEET</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Welcome to JEE/NEET To-Do List</h1>
+        <form id="nameForm">
+            <input type="text" id="playerName" placeholder="Enter your name" required>
+            <button type="submit">Start</button>
+        </form>
+
+        <div id="dashboard" class="dashboard hidden">
+            <h2>Hello, <span id="nameDisplay"></span>!</h2>
+            <p>Select a subject to manage your tasks:</p>
+            <div class="subject-buttons">
+                <button onclick="openSubject('maths')">Maths</button>
+                <button onclick="openSubject('chemistry')">Chemistry</button>
+                <button onclick="openSubject('physics')">Physics</button>
+                <button onclick="openSubject('biology')">Biology</button>
+            </div>
+        </div>
+
+        <div id="todoList" class="todo-list hidden">
+            <h2 id="subjectTitle"></h2>
+            <ul id="tasks"></ul>
+            <input type="text" id="taskInput" placeholder="Add a task">
+            <button onclick="addTask()">Add Task</button>
+            <div class="youtube-link">
+                <h3>Best One-Shot Video</h3>
+                <a id="youtubeLink" target="_blank">
+                    <img src="https://www.google.com/search?q=youtube&client=ms-android-samsung-ss&sca_esv=12268370a69439db&sca_upv=1&udm=2&biw=384&bih=761&sxsrf=ADLYWIJXNDzfomK9Mtksceb3rjmAKh4v9w%3A1722508156494&ei=fGOrZsPyHfSW4-EP44WJSA&oq=youtube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIgd5b3V0dWJlMgQQIxgnMgQQIxgnMgQQABgDMg0QABiABBixAxhDGIoFMg0QABiABBixAxhDGIoFSPUuUKAMWOYtcAN4AJABAJgBggKgAcYKqgEFMC41LjK4AQPIAQD4AQGYAgmgAoMKqAIFwgIIEAAYgAQYogTCAgcQIxgnGOoCmAMIiAYBkgcFMy4zLjOgB6go&sclient=mobile-gws-wiz-serp#vhid=4SdipOmISh0hFM&vssid=mosaic" alt="YouTube Logo">
+                </a>
+            </div>
+            <button onclick="goBack()">Back to Dashboard</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+document.getElementById('nameForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const playerName = document.getElementById('playerName').value;
+    document.getElementById('nameDisplay').textContent = playerName;
+    document.getElementById('dashboard').classList.remove('hidden');
+    document.getElementById('nameForm').classList.add('hidden');
+});
+
+const subjectData = {
+    maths: {
+        title: 'Maths',
+        image: 'https://www.example.com/path-to-maths-image.png',
+        videoLink: 'https://youtube.com/playlist?list=PLmodCnEycmoJ6BkoZ75_xbv-IAA8wHH3n&si=gQGjMI7SokmeHhNF'
+    },
+    chemistry: {
+        title: 'Chemistry',
+        image: 'https://www.example.com/path-to-chemistry-image.png',
+        videoLink: 'https://youtube.com/playlist?list=PLxyGaR3hEy3gO-zK_UUuhutbmf8sjIE1W&si=ohrLGfk9u33sKCMw'
+    },
+    physics: {
+        title: 'Physics',
+        image: 'https://www.example.com/path-to-physics-image.png',
+        videoLink: 'https://youtube.com/playlist?list=PLxyGaR3hEy3ieFuXAdtlenRNcey9Cxo6I&si=0HJDq1L8FToBvgLI'
+    },
+    biology: {
+        title: 'Biology',
+        image: 'https://www.example.com/path-to-biology-image.png',
+        videoLink: 'https://youtube.com/playlist?list=PLsgHooHkqhhPzZXAkLj02MbSvhOeLEabD&si=-jJt8jQdUJBJTd_4'
+    }
+};
+
+function openSubject(subject) {
+    const data = subjectData[subject];
+    document.getElementById('subjectTitle').textContent = data.title;
+    document.getElementById('youtubeLink').href = data.videoLink;
+    document.getElementById('youtubeLink').innerHTML = `<img src="${data.image}" alt="${data.title} Logo">`;
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('todoList').classList.remove('hidden');
+    document.getElementById('tasks').innerHTML = '';
+}
+
+function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskValue = taskInput.value;
+    if (taskValue.trim()) {
+        const li = document.createElement('li');
+        li.textContent = taskValue;
+        document.getElementById('tasks').appendChild(li);
+        taskInput.value = '';
+    }
+}
+
+function goBack() {
+    document.getElementById('todoList').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+}
